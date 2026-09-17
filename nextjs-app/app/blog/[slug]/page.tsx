@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { SITE_URL } from '@/app/lib/site';
 import { getAllSlugs, getPostBySlug } from '@/app/lib/blog';
+import BlogPostContent from '../BlogPostContent';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,13 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Not Found' };
   }
   return {
-    title: `${post.title} | Bridal Aisle Boutique Blog`,
+    title: post.seoTitle ?? `${post.title} | Bridal Aisle Boutique Blog`,
     description: post.excerpt,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
     openGraph: {
-      title: post.title,
+      title: post.seoTitle ?? post.title,
       description: post.excerpt,
       url: `${SITE_URL}/blog/${post.slug}`,
     },
@@ -37,14 +38,36 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const faqSchema =
+    post.faqs && post.faqs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: post.faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <main className="page-container">
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
       <article className="blog-section">
         <div className="blog-container">
           <p className="blog-back">
             <Link href="/blog">← Our Blog</Link>
           </p>
-          <header className="blog-post-header">
+          <div className="blog-post-header">
             <time className="blog-date" dateTime={post.date}>
               {new Date(post.date + 'T12:00:00').toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -53,12 +76,8 @@ export default async function BlogPostPage({ params }: Props) {
               })}
             </time>
             <h1>{post.title}</h1>
-          </header>
-          <div className="blog-post-body">
-            {post.paragraphs.map((text, i) => (
-              <p key={i}>{text}</p>
-            ))}
           </div>
+          <BlogPostContent paragraphs={post.paragraphs} blocks={post.blocks} faqs={post.faqs} />
           <p className="blog-back blog-back-bottom">
             <Link href="/blog">← Back to Our Blog</Link>
           </p>
