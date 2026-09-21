@@ -1,20 +1,29 @@
 {
-  "name": "bridal-aisle-rebuild",
+  "name": "bridal-aisle-v2",
   "version": "1.0.0",
-  "description": "Scrape and rebuild kit for Bridal Aisle website",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "scrape:all": "tsx scripts/run-all.ts",
-    "scrape:single": "tsx scripts/scrape.ts",
-    "download": "tsx scripts/download-assets.ts",
-    "scaffold": "tsx scripts/scaffold-nextjs.ts"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@playwright/test": "^1.40.0",
-    "playwright": "^1.40.0"
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.14.2",
+    "next": "^15.1.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.10.0",
-    "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.4",
+    "typescript": "^5.7.2"
   }
 }
