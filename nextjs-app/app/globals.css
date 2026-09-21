@@ -6734,6 +6734,16 @@ main.page-container .contact-page-container,
    Palette: forest #24362C, bone #F1EADF, walnut #57402F, brass #A99A6F, black #1C1C1A
    ========================================================================== */
 
+body:has(.woods-page) {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.woods-page {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body:has(.woods-page) > .announcement-bar,
 body:has(.woods-page) > header.sticky-header,
 body:has(.woods-page) > footer.main-footer {
@@ -7061,7 +7071,7 @@ body:has(.woods-page) > footer.main-footer {
 
 @media (prefers-reduced-motion: reduce) and (max-width: 768px) {
   .woods-hero-fg {
-    transform: translateX(50%);
+    transform: none;
   }
 }
 
@@ -7276,6 +7286,12 @@ body:has(.woods-page) > footer.main-footer {
 
 .woods-rentals-title-line {
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .woods-rentals-title-line {
+    white-space: normal;
+  }
 }
 
 .woods-page .mens-section-text,
@@ -7625,12 +7641,13 @@ body:has(.woods-page) > footer.main-footer {
   }
 
   .woods-hero-fg {
-    left: auto;
-    right: 50%;
+    left: 0;
+    right: 0;
     bottom: -3%;
-    width: 118%;
+    width: 100%;
+    max-width: 100%;
     height: 70%;
-    transform: translateX(50%);
+    transform: none;
     background-size: contain;
     background-position: center bottom;
     opacity: 1;
@@ -7640,11 +7657,11 @@ body:has(.woods-page) > footer.main-footer {
   @keyframes woods-hero-fg-in-mobile {
     from {
       opacity: 0;
-      transform: translateX(50%) translateY(10%);
+      transform: translateY(10%);
     }
     to {
       opacity: 1;
-      transform: translateX(50%) translateY(0);
+      transform: none;
     }
   }
 
