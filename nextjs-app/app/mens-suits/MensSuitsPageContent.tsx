@@ -21,8 +21,8 @@ export default function MensSuitsPageContent() {
             <h2 className="woods-details-title">Show up.<br />Get measured.<br />We&apos;ll handle the rest.</h2>
             <p className="woods-details-text">
               You don&apos;t need to become a stylist for this. Bring the groom, send the groomsmen,
-              and we match the look — suit, shoes, the small stuff — then take the measurements
-              so nobody is guessing the week of the wedding.
+              and we&apos;ll match the full look, from the suit and shoes to the smaller details.
+              Then we&apos;ll take the measurements so nobody is guessing the week of the wedding.
             </p>
             <p className="woods-details-text">
               One appointment. The whole party. You leave knowing it&apos;s handled.
