@@ -7595,9 +7595,14 @@ body:has(.woods-page) > footer.main-footer {
 
   .woods-page .mens-hero-content {
     margin-left: 0;
-    padding: 2.5rem 1.5rem;
+    padding: 1.25rem 1.5rem 0;
     text-align: center;
     max-width: 100%;
+    width: 100%;
+    min-height: calc(85vh - 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .woods-page .mens-hero-label {
@@ -7613,8 +7618,8 @@ body:has(.woods-page) > footer.main-footer {
   }
 
   .woods-page .woods-hero {
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: flex-start;
+    align-items: stretch;
     min-height: 85vh;
     padding-bottom: 2rem;
   }
@@ -7624,7 +7629,7 @@ body:has(.woods-page) > footer.main-footer {
     right: 50%;
     bottom: -3%;
     width: 118%;
-    height: 82%;
+    height: 70%;
     transform: translateX(50%);
     background-size: contain;
     background-position: center bottom;
@@ -7635,7 +7640,7 @@ body:has(.woods-page) > footer.main-footer {
   @keyframes woods-hero-fg-in-mobile {
     from {
       opacity: 0;
-      transform: translateX(50%) translateY(12%);
+      transform: translateX(50%) translateY(10%);
     }
     to {
       opacity: 1;
@@ -7645,15 +7650,21 @@ body:has(.woods-page) > footer.main-footer {
 
   .woods-page .woods-hero-overlay {
     background: linear-gradient(
-      to top,
-      rgba(36, 54, 44, 0.82) 0%,
-      rgba(36, 54, 44, 0.28) 48%,
-      rgba(36, 54, 44, 0.12) 100%
+      to bottom,
+      rgba(36, 54, 44, 0.7) 0%,
+      rgba(36, 54, 44, 0.18) 36%,
+      rgba(36, 54, 44, 0.2) 62%,
+      rgba(36, 54, 44, 0.78) 100%
     );
   }
 
-  .woods-page .mens-hero-content {
+  .woods-page .woods-hero .mens-hero-content {
     z-index: 3;
+  }
+
+  .woods-page .woods-hero .woods-hero-cta {
+    margin-top: 0;
+    padding-bottom: 0.25rem;
   }
 
   .woods-nav-mark {
@@ -7701,12 +7712,12 @@ body:has(.woods-page) > footer.main-footer {
 
   .woods-own-copy {
     padding: 4rem 2rem;
-    order: 1;
+    order: 2;
   }
 
   .woods-own-photo {
     min-height: 500px;
-    order: 2;
+    order: 1;
   }
 
   .woods-page .mens-rentals-section .mens-image-right {
