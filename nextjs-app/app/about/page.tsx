@@ -236,7 +236,7 @@ export default function AboutPage() {
               within reach.
             </p>
             <p>
-              Home to Bridal Aisle Boutique and Budget Bridal Outlet, and now The Woods Men&apos;s Suits offering suits for purchase and rentals for wedding parties, we remain committed to making every &ldquo;yes&rdquo; joyful, authentic, and stress-free.
+              Home to Bridal Aisle Boutique and Budget Bridal Outlet, and now The Woods offering suits for purchase and rentals for wedding parties, we remain committed to making every &ldquo;yes&rdquo; joyful, authentic, and stress-free.
             </p>
             <div className="history-divider"></div>
           </div>
@@ -357,7 +357,7 @@ export default function AboutPage() {
         },
         {
           question: "What type of inventory do you carry?",
-          answer: "We carry over 2,000 designer gowns from top bridal designers for you to bring home today! We also offer accessories, veils, and suits for purchase or rent through our men's department, The Woods Men's Suits."
+          answer: "We carry over 2,000 designer gowns from top bridal designers for you to bring home today! We also offer accessories, veils, and suits for purchase or rent through our men's department, The Woods."
         },
         {
           question: "What if I need alterations for a wedding dress I really like?",

@@ -53,7 +53,7 @@ export default function HomePageContent() {
               />
             </Link>
           </div>
-          <Link href="/mens-suits">Men&apos;s Suits</Link>
+          <Link href="/mens-suits">The Woods</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </nav>
@@ -301,16 +301,15 @@ export default function HomePageContent() {
         </div>
       </section>
 
-      {/* Men's Suits Parallax Banner */}
-      <section className="mens-suits-parallax">
+      {/* The Woods Parallax Banner */}
+      <section className="mens-suits-parallax woods-home-banner">
         <div className="parallax-overlay"></div>
         <div className="parallax-content">
-          <p className="parallax-label">TAILORED SUITS FOR LIFE&apos;S DEFINING MOMENTS</p>
+          <p className="parallax-label">THE WOODS</p>
           <h2 className="parallax-title">
-            <span className="script-text">Timeless style</span>
-            <span className="serif-text"> for every occasion.</span>
+            <span className="serif-text">Tailored for the groomsmen, and the north.</span>
           </h2>
-          <Link href="/mens-suits" className="parallax-btn">THE WOODS MEN&apos;S SUITS</Link>
+          <Link href="/mens-suits" className="parallax-btn">ENTER THE WOODS</Link>
         </div>
       </section>
 
@@ -446,7 +445,7 @@ export default function HomePageContent() {
           },
           {
             question: "What type of inventory do you carry?",
-            answer: "We carry over 2,000 designer gowns from top bridal designers for you to bring home today! We also offer accessories, veils, and suits for purchase or rent through our men's department, The Woods Men's Suits."
+            answer: "We carry over 2,000 designer gowns from top bridal designers for you to bring home today! We also offer accessories, veils, and suits for purchase or rent through our men's department, The Woods."
           },
           {
             question: "What if I need alterations for a wedding dress I really like?",

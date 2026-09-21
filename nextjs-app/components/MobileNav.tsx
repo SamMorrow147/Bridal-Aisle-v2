@@ -4,12 +4,18 @@ import { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
+import WoodsWordmark from '@/components/WoodsWordmark';
 
 export interface MobileNavRef {
   openMenu: () => void;
 }
 
-const MobileNav = forwardRef<MobileNavRef>((props, ref) => {
+type MobileNavProps = {
+  variant?: 'default' | 'woods';
+};
+
+const MobileNav = forwardRef<MobileNavRef, MobileNavProps>(function MobileNav({ variant = 'default' }, ref) {
+  const isWoods = variant === 'woods';
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -49,7 +55,7 @@ const MobileNav = forwardRef<MobileNavRef>((props, ref) => {
       )}
 
       {/* Mobile Menu Drawer */}
-      <div className={`mobile-menu-drawer ${isOpen ? 'open' : ''}`}>
+      <div className={`mobile-menu-drawer ${isOpen ? 'open' : ''} ${isWoods ? 'woods-mobile-drawer' : ''}`}>
         <button className="mobile-menu-close" onClick={closeMenu} aria-label="Close menu">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -58,22 +64,28 @@ const MobileNav = forwardRef<MobileNavRef>((props, ref) => {
         </button>
         
         <div className="mobile-menu-header">
-          <Link href="/" onClick={closeMenu}>
-            <Image
-              src="/BA-logo-stacked.png"
-              alt="Bridal Aisle"
-              width={80}
-              height={100}
-              style={{ width: 'auto', height: '80px', maxWidth: '100%' }}
-            />
-          </Link>
+          {isWoods ? (
+            <div onClick={closeMenu}>
+              <WoodsWordmark size="mobile" />
+            </div>
+          ) : (
+            <Link href="/" onClick={closeMenu}>
+              <Image
+                src="/BA-logo-stacked.png"
+                alt="Bridal Aisle"
+                width={80}
+                height={100}
+                style={{ width: 'auto', height: '80px', maxWidth: '100%' }}
+              />
+            </Link>
+          )}
         </div>
         
         <nav className="mobile-menu-links">
           <Link href="/" onClick={closeMenu}>Home</Link>
           <Link href="/appointments" onClick={closeMenu}>Appointments</Link>
           <Link href="/bridal" onClick={closeMenu}>Bridal</Link>
-          <Link href="/mens-suits" onClick={closeMenu}>Men&apos;s Suits</Link>
+          <Link href="/mens-suits" onClick={closeMenu} aria-current={isWoods ? 'page' : undefined}>{isWoods ? 'Men\'s Suits' : 'The Woods'}</Link>
           <Link href="/about" onClick={closeMenu}>About</Link>
           <Link href="/contact" onClick={closeMenu}>Contact</Link>
         </nav>
@@ -104,17 +116,23 @@ const MobileNav = forwardRef<MobileNavRef>((props, ref) => {
   return (
     <>
       {/* Mobile Nav Bar */}
-      <nav className="mobile-nav-bar">
-        <Link href="/" className="mobile-logo" onClick={closeMenu}>
-          <Image
-            src="/BA-logo-stacked.png"
-            alt="Bridal Aisle"
-            width={50}
-            height={62}
-            priority
-            style={{ width: 'auto', height: '45px' }}
-          />
-        </Link>
+      <nav className={`mobile-nav-bar ${isWoods ? 'woods-mobile-nav-bar' : ''}`}>
+        {isWoods ? (
+          <div className="mobile-logo woods-mobile-logo">
+            <WoodsWordmark size="mobile" />
+          </div>
+        ) : (
+          <Link href="/" className="mobile-logo" onClick={closeMenu}>
+            <Image
+              src="/BA-logo-stacked.png"
+              alt="Bridal Aisle"
+              width={50}
+              height={62}
+              priority
+              style={{ width: 'auto', height: '45px' }}
+            />
+          </Link>
+        )}
         
         <button 
           className="hamburger-menu" 
@@ -141,8 +159,6 @@ const MobileNav = forwardRef<MobileNavRef>((props, ref) => {
     </>
   );
 });
-
-MobileNav.displayName = 'MobileNav';
 
 export default MobileNav;
 

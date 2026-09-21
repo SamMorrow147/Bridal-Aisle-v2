@@ -3,24 +3,25 @@ import MensSuitsPageContent from './MensSuitsPageContent';
 import { SITE_URL } from '@/app/lib/site';
 
 export const metadata: Metadata = {
-  title: "Men's Formal Attire & Wedding Suits in Minnesota | Bridal Aisle",
-  description: "Shop men's wedding suits in Minnesota at Bridal Aisle Boutique in Maple Grove. Rentals and purchases available with professional styling. Book your men's suit appointment today — (763) 220-2319.",
+  title: "The Woods | Men's Formal Attire & Wedding Suits in Minnesota",
+  description: "The Woods at Bridal Aisle Boutique in Maple Grove — men's wedding suits for rent or purchase, with professional styling. Book your appointment today — (763) 220-2319.",
   alternates: {
     canonical: '/mens-suits',
   },
   openGraph: {
-    title: "Men's Formal Attire & Wedding Suits in Minnesota | Bridal Aisle",
-    description: "Shop men's wedding suits in Minnesota at Bridal Aisle Boutique in Maple Grove. Rentals and purchases available with professional styling. Book your men's suit appointment today — (763) 220-2319.",
+    title: "The Woods | Men's Formal Attire & Wedding Suits in Minnesota",
+    description: "The Woods at Bridal Aisle Boutique in Maple Grove — men's wedding suits for rent or purchase, with professional styling. Book your appointment today — (763) 220-2319.",
     url: `${SITE_URL}/mens-suits`,
+    images: [{ url: '/mens-suits/woods-hero.jpg', width: 1024, height: 768, alt: "The Woods — men's suits at Bridal Aisle Boutique" }],
   },
 };
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: "Men's Wedding Suits & Formal Attire",
+  name: "The Woods — Men's Wedding Suits & Formal Attire",
   provider: { '@type': 'LocalBusiness', name: 'Bridal Aisle Boutique' },
-  description: "Men's suit rentals and purchases for weddings and formal events in Maple Grove MN near Minneapolis. Professional measuring and styling appointments available. Free 60-minute consultation.",
+  description: "The Woods at Bridal Aisle Boutique: men's suit rentals and purchases for weddings and formal events in Maple Grove MN near Minneapolis. Professional measuring and styling appointments available.",
   areaServed: ['Osseo MN', 'Maple Grove MN', 'Brooklyn Park MN', 'Minneapolis MN'],
   availableChannel: {
     '@type': 'ServiceChannel',

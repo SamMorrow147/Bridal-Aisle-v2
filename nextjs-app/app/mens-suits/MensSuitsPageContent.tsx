@@ -1,26 +1,36 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import BridesSlideshow from '@/components/BridesSlideshow';
+import WoodsHowItWorks from './WoodsHowItWorks';
+import WoodsDetailsPhoto from './WoodsDetailsPhoto';
+import WoodsHero from './WoodsHero';
 
 export default function MensSuitsPageContent() {
   return (
     <>
     <main className="page-container">
-      {/* Hero Section */}
-      <section className="mens-suits-hero">
-        <div className="mens-hero-overlay"></div>
-        <div className="mens-hero-content">
-          <p className="mens-hero-label">
-            <span className="label-line"></span>
-            THE WOODS MEN'S SUITS
-            <span className="label-line"></span>
+      <WoodsHero />
+
+      <section className="woods-details-section">
+        <div className="woods-details-grid">
+          <WoodsDetailsPhoto />
+          <div className="woods-details-copy">
+            <p className="woods-details-label">
+              Bring the boys. Make it a thing or not. Whatever.
             </p>
-          <h1 className="mens-hero-title">For the groom, the groomsmen & beyond</h1>
-          <p className="mens-hero-text">
-            From timeless rentals to quality suits you can call your own, Bridal Aisle Boutique 
-            offers a full-service formalwear experience. Whether you're walking down the aisle or 
-            showing up in style, our men's department makes finding the right fit effortless.
-          </p>
+            <h2 className="woods-details-title">Show up.<br />Get measured.<br />We&apos;ll handle the rest.</h2>
+            <p className="woods-details-text">
+              You don&apos;t need to become a stylist for this. Bring the groom, send the groomsmen,
+              and we match the look — suit, shoes, the small stuff — then take the measurements
+              so nobody is guessing the week of the wedding.
+            </p>
+            <p className="woods-details-text">
+              One appointment. The whole party. You leave knowing it&apos;s handled.
+            </p>
+            <div className="woods-details-cta">
+              <Link href="/appointments#appointment-5" className="woods-cta-btn">Get it done</Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -28,16 +38,31 @@ export default function MensSuitsPageContent() {
       <section className="mens-rentals-section">
         <div className="mens-two-column">
           <div className="mens-content-left">
-            <h2 className="mens-section-title">Full-service suit rentals for weddings, prom & special events</h2>
+            <h2 className="mens-section-title woods-rentals-title">
+              Don&apos;t need a suit
+              <br />
+              <span className="woods-rentals-title-line">in your closet?</span>
+              <br />
+              <strong>Rent one.</strong>
+            </h2>
             
             <p className="mens-section-text">
-              Our partnership with <strong>DuBois Formalwear</strong> ensures every suit meets the 
-              highest standard of fit and finish. Whether you're preparing for your wedding, prom, or 
-              a black-tie event, our stylists will curate a look that complements your style and setting.
+              Wedding, prom, black-tie event, or something in between. Get the look without
+              buying a suit you&apos;ll barely wear after. We&apos;ll fit you, your groomsmen,
+              or your group and help pull the full look together.
+            </p>
+
+            <p className="mens-section-text">
+              Our partnership with <strong>DuBois Formalwear</strong> ensures every suit meets the highest
+              standard of fit and finish.
+            </p>
+
+            <p className="mens-section-text">
+              Good suits. Good fit. No guesswork.
             </p>
             
             <div style={{ marginTop: '2.5rem', marginBottom: '3rem' }}>
-              <Link href="/appointments#appointment-5" className="bridal-cta-btn">BOOK A SUIT APPOINTMENT</Link>
+              <Link href="/appointments#appointment-5" className="woods-cta-btn woods-cta-btn-on-dark">Book Your Fitting</Link>
             </div>
             
             <div className="mens-logos">
@@ -64,71 +89,60 @@ export default function MensSuitsPageContent() {
           
           <div className="mens-image-right">
             <Image
-              src="/mens-suits/hero-groom.jpg"
-              alt="Groom in tailored wedding suit from Bridal Aisle Boutique — formal wear in Maple Grove MN"
+              src="/mens-suits/woods-rentals.jpg"
+              alt="Wedding party in brown and tan suits from The Woods at Bridal Aisle Boutique"
               fill
-              style={{ objectFit: 'cover' }}
+              unoptimized
+              quality={95}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
             />
           </div>
         </div>
       </section>
 
-      {/* Section 3 - The Suit Rental Process */}
-      <section className="mens-process-section">
-        <h2 className="mens-process-heading">The Suit Rental Process</h2>
-        
-        <div className="mens-process-grid">
-          {/* Row 1: 2 columns */}
-          <Link href="/appointments#appointment-5" className="process-box row1">
-            <p>BOOK YOUR<br />APPOINTMENT ONLINE &gt;</p>
-          </Link>
-          
-          <div className="process-box row1">
-            <p>CONSULT WITH OUR FORMALWEAR STYLIST TO SELECT YOUR PREFERRED STYLE AND COLOR PALETTE.</p>
-          </div>
-          
-          {/* Row 2: 3 columns */}
-          <div className="process-box row2">
-            <p>GET PROFESSIONALLY MEASURED — WE HANDLE ALL THE DETAILS.</p>
-          </div>
-          
-          <div className="process-box row2">
-            <p>TRY ON BEFORE YOUR EVENT TO ENSURE A PERFECT FIT.</p>
-          </div>
-          
-          <div className="process-box row2">
-            <p>RETURN WITH EASE THE DAY AFTER YOUR CELEBRATION.</p>
-          </div>
-        </div>
-      </section>
+      <WoodsHowItWorks />
 
-      {/* Section 4 - Pure Silk Suits */}
-      <section className="mens-silk-suits-section">
-        <div className="silk-suits-content">
-          <p className="silk-suits-label">OWN YOUR SUIT</p>
-          <h2 className="silk-suits-title">Pure Silk Suits Designed to Last a Lifetime</h2>
+      {/* Section 4 - Own your suit */}
+      <section className="mens-silk-suits-section woods-own-section">
+        <div className="woods-own-photo">
+          <Image
+            src="/mens-suits/hero-groom.jpg"
+            alt="Groom in a tailored charcoal suit from The Woods — a wedding suit you can wear after"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: 'cover', objectPosition: 'center top' }}
+          />
+        </div>
+        <div className="silk-suits-content woods-own-copy">
+          <h2 className="silk-suits-title">Own Your Suit</h2>
+          <p className="silk-suits-label">A Suit Made for the Wedding—and What Comes After</p>
           
           <p className="silk-suits-text">
-            For those seeking a more permanent addition to their wardrobe, Bridal Aisle now offers pure 
-            silk fabric suits for purchase. Crafted with precision and available in a variety of timeless 
-            hues, these suits are made to move with you—from your wedding day to every milestone that follows.
+            If you&apos;d rather own than rent, Bridal Aisle offers Pure Silk suits designed to
+            stay in your wardrobe long after the wedding day.
           </p>
           
           <p className="silk-suits-text">
-            Choose your style, customize your fit, and complete your look with refined details such as a 
-            shirt, tie, and pocket square, all carefully curated by our stylists.
+            Choose your style, customize the fit, and make it your own with a shirt, tie,
+            pocket square, and other finishing details selected with help from our stylists.
+          </p>
+
+          <p className="silk-suits-text">
+            The result is a suit that feels right for the wedding, but works just as well
+            for dinners, work, celebrations, and whatever comes next.
           </p>
           
           <div style={{ marginTop: '3rem' }}>
-            <Link href="/appointments" className="bridal-cta-btn">SCHEDULE YOUR APPOINTMENT</Link>
+            <Link href="/appointments" className="woods-cta-btn">Book Your Fitting</Link>
           </div>
         </div>
       </section>
 
       {/* Photo Gallery */}
-      <section className="mens-gallery-section">
+      <section className="mens-gallery-section woods-gallery-section">
         <BridesSlideshow slides={[
-          { image: '/mens-suits/suit-slide-1.jpg', alt: 'Metro suit' },
+          { image: '/mens-suits/suit-slide-1.jpg', alt: 'Wedding party in matching sage suits from The Woods' },
           { image: '/mens-suits/suit-slide-2.jpg', alt: 'Metro suit' },
           { image: '/mens-suits/suit-slide-3.jpg', alt: 'Metro suit' },
           { image: '/mens-suits/suit-slide-4.jpg', alt: 'Metro suit' },

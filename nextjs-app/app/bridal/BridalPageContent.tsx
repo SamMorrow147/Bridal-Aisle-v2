@@ -353,7 +353,7 @@ export default function BridalPageContent() {
           },
           {
             question: "What type of inventory do you carry?",
-            answer: "We carry over 2,000 designer gowns from top bridal designers for you to bring home today! We also offer accessories, veils, and suits for purchase or rent through our men's department, The Woods Men's Suits."
+            answer: "We carry over 2,000 designer gowns from top bridal designers for you to bring home today! We also offer accessories, veils, and suits for purchase or rent through our men's department, The Woods."
           },
           {
             question: "What if I need alterations for a wedding dress I really like?",

@@ -80,7 +80,7 @@ export default function AppointmentsPageContent() {
               <h3>VIP Bridal Experience</h3>
             </a>
             <a href="#appointment-5" className="appointment-menu-item" onClick={(e) => scrollToSection(e, 'appointment-5')}>
-              <h3>Men&apos;s Suit<br />Appointment</h3>
+              <h3>The Woods<br />Appointment</h3>
             </a>
             <a href="#appointment-4" className="appointment-menu-item" onClick={(e) => scrollToSection(e, 'appointment-4')}>
               <h3>ACCESSORY/Bridal Styling<br />Appointment</h3>
@@ -199,7 +199,7 @@ export default function AppointmentsPageContent() {
         </div>
       </section>
 
-      {/* 5. The Wood's Men's Suits */}
+      {/* 5. The Woods */}
       <section id="appointment-5" className="appointment-detail-section">
         <div className="appointment-detail-container">
           <AppointmentDetailSlideshow slides={[
@@ -211,7 +211,7 @@ export default function AppointmentsPageContent() {
             { image: '/appointments/appt-5-5.jpg', alt: 'Groom selecting men\'s formal attire for wedding at Bridal Aisle Boutique — wedding suits Minnesota' }
           ]} />
           <div className="appointment-detail-content">
-            <h2 className="appointment-detail-title">The Wood&apos;s Men&apos;s Suits</h2>
+            <h2 className="appointment-detail-title">The Woods</h2>
             <p>We carry suits for rental or for purchase.</p>
             <p>During your 60 Minute appointment, you will have a designated stylist to assist you in selecting the perfect color and style for your wedding or event.</p>
             <p>It is suggested that the couple come in separate from their party members to make their selections. Once the styles are selected, party members are encouraged to make an appointment to get professionally measured with us and we will get your suits ordered!</p>
@@ -300,7 +300,7 @@ export default function AppointmentsPageContent() {
           },
           {
             question: "What type of inventory do you carry?",
-            answer: "We carry over 2,000 designer gowns from top bridal designers for you to bring home today! We also offer accessories, veils, and suits for purchase or rent through our men's department, The Woods Men's Suits."
+            answer: "We carry over 2,000 designer gowns from top bridal designers for you to bring home today! We also offer accessories, veils, and suits for purchase or rent through our men's department, The Woods."
           },
           {
             question: "What if I need alterations for a wedding dress I really like?",
