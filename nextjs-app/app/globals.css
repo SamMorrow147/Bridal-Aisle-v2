@@ -6970,9 +6970,22 @@ body:has(.woods-page) > footer.main-footer {
   background-repeat: no-repeat;
   transform: scale(1.04);
   transform-origin: center center;
-  animation: woods-hero-breathe 38s ease-in-out infinite;
-  will-change: transform;
+  animation:
+    woods-hero-bg-in 1.5s ease-out both,
+    woods-hero-breathe 38s ease-in-out 1.5s infinite;
+  will-change: transform, opacity;
   z-index: 0;
+}
+
+@keyframes woods-hero-bg-in {
+  from {
+    opacity: 0.25;
+    transform: scale(1.12);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
 }
 
 @keyframes woods-hero-breathe {
@@ -6981,13 +6994,6 @@ body:has(.woods-page) > footer.main-footer {
   }
   50% {
     transform: scale(1.09);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .woods-hero-bg {
-    animation: none;
-    transform: scale(1.04);
   }
 }
 
@@ -7003,6 +7009,60 @@ body:has(.woods-page) > footer.main-footer {
   background-position: right bottom;
   z-index: 2;
   pointer-events: none;
+  animation: woods-hero-fg-in 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+  will-change: transform, opacity;
+}
+
+@keyframes woods-hero-fg-in {
+  from {
+    opacity: 0;
+    transform: translateX(9%) translateY(4%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.woods-page .woods-hero .mens-hero-content {
+  z-index: 3;
+  animation: woods-hero-copy-in 1s ease-out 0.75s both;
+}
+
+@keyframes woods-hero-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .woods-hero-bg,
+  .woods-hero-fg,
+  .woods-page .woods-hero .mens-hero-content {
+    animation: none;
+  }
+
+  .woods-hero-bg {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+
+  .woods-hero-fg,
+  .woods-page .woods-hero .mens-hero-content {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 768px) {
+  .woods-hero-fg {
+    transform: translateX(50%);
+  }
 }
 
 .woods-page .woods-hero-overlay {
@@ -7013,10 +7073,6 @@ body:has(.woods-page) > footer.main-footer {
     rgba(36, 54, 44, 0.08) 100%
   );
   z-index: 1;
-}
-
-.woods-page .woods-hero .mens-hero-content {
-  z-index: 3;
 }
 
 .woods-page .mens-hero-content {
@@ -7573,6 +7629,18 @@ body:has(.woods-page) > footer.main-footer {
     background-size: contain;
     background-position: center bottom;
     opacity: 1;
+    animation-name: woods-hero-fg-in-mobile;
+  }
+
+  @keyframes woods-hero-fg-in-mobile {
+    from {
+      opacity: 0;
+      transform: translateX(50%) translateY(12%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(50%) translateY(0);
+    }
   }
 
   .woods-page .woods-hero-overlay {
