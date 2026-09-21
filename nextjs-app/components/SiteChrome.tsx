@@ -35,7 +35,7 @@ export default function SiteChrome({ part }: { part: 'top' | 'bottom' }) {
                 />
               </Link>
             </div>
-            <Link href="/mens-suits">The Woods</Link>
+            <Link href="/mens-suits">Men&apos;s Suits</Link>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </nav>

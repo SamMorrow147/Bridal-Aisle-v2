@@ -85,7 +85,7 @@ const MobileNav = forwardRef<MobileNavRef, MobileNavProps>(function MobileNav({ 
           <Link href="/" onClick={closeMenu}>Home</Link>
           <Link href="/appointments" onClick={closeMenu}>Appointments</Link>
           <Link href="/bridal" onClick={closeMenu}>Bridal</Link>
-          <Link href="/mens-suits" onClick={closeMenu} aria-current={isWoods ? 'page' : undefined}>{isWoods ? 'Men\'s Suits' : 'The Woods'}</Link>
+          <Link href="/mens-suits" onClick={closeMenu} aria-current={isWoods ? 'page' : undefined}>Men&apos;s Suits</Link>
           <Link href="/about" onClick={closeMenu}>About</Link>
           <Link href="/contact" onClick={closeMenu}>Contact</Link>
         </nav>
