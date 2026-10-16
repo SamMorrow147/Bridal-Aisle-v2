@@ -47,7 +47,7 @@ export default function PromPageContent() {
               One appointment. The whole group. You leave knowing it&apos;s handled.
             </p>
             <div className="woods-details-cta">
-              <Link href="/appointments#appointment-5" className="woods-cta-btn">Get it done</Link>
+              <Link href="/appointments#book-appointment" className="woods-cta-btn">Get it done</Link>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function PromPageContent() {
             </p>
             
             <div style={{ marginTop: '2.5rem', marginBottom: '3rem' }}>
-              <Link href="/appointments#appointment-5" className="woods-cta-btn woods-cta-btn-on-dark">Book Your Fitting</Link>
+              <Link href="/appointments#book-appointment" className="woods-cta-btn woods-cta-btn-on-dark">Book Your Fitting</Link>
             </div>
             
             <div className="mens-logos">
@@ -88,16 +88,7 @@ export default function PromPageContent() {
                 <Image
                   src="/home/dubois-logo.png"
                   alt="DB Formalwear — prom and formal attire at Bridal Aisle Boutique Minnesota"
-                  width={120}
-                  height={60}
-                  style={{ objectFit: 'contain' }}
-                />
-              </a>
-              <a href="https://puresilkfabrics.com/suits/metro-suits/" target="_blank" rel="noopener noreferrer">
-                <Image
-                  src="/home/psf-logo.png"
-                  alt="Pure Silk Fabrics — custom made suits in Maple Grove MN at Bridal Aisle Boutique"
-                  width={180}
+                  width={160}
                   height={80}
                   style={{ objectFit: 'contain' }}
                 />
@@ -153,7 +144,19 @@ export default function PromPageContent() {
           </p>
           
           <div style={{ marginTop: '3rem' }}>
-            <Link href="/appointments" className="woods-cta-btn">Book Your Fitting</Link>
+            <Link href="/appointments#book-appointment" className="woods-cta-btn">Book Your Fitting</Link>
+          </div>
+
+          <div className="mens-logos">
+            <a href="https://puresilkfabrics.com/suits/metro-suits/" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/home/psf-logo.png"
+                alt="Pure Silk Fabrics — custom made suits in Maple Grove MN at Bridal Aisle Boutique"
+                width={180}
+                height={80}
+                style={{ objectFit: 'contain' }}
+              />
+            </a>
           </div>
         </div>
       </section>

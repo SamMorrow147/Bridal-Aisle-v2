@@ -51,7 +51,7 @@ export default function WoodsHowItWorks({ steps }: { steps: WoodsStep[] }) {
           return (
             <li key={step.title}>
               {i === 0 ? (
-                <Link href="/appointments#appointment-5" className="woods-step woods-step-link">
+                <Link href="/appointments#book-appointment" className="woods-step woods-step-link">
                   <span className="woods-step-num">{num}</span>
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>

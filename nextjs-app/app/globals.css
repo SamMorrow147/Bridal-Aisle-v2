@@ -7460,7 +7460,8 @@ body:has(.woods-page) > footer.main-footer {
   color: #E8E0D2;
 }
 
-.woods-page .mens-rentals-section .mens-logos img {
+.woods-page .mens-rentals-section .mens-logos img,
+.woods-page .woods-own-section .mens-logos img {
   filter: brightness(0) invert(1);
   opacity: 0.92;
 }
@@ -8024,6 +8025,10 @@ body:has(.woods-page) > footer.main-footer {
     order: 2;
   }
 
+  .woods-own-copy .mens-logos {
+    justify-content: center;
+  }
+
   .woods-own-photo {
     min-height: 500px;
     order: 1;
@@ -8132,7 +8137,7 @@ body:has(.woods-page) > footer.main-footer {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(28, 28, 26, 0.82) 0%, rgba(28, 28, 26, 0.28) 32%, rgba(28, 28, 26, 0) 55%);
+  background: linear-gradient(to bottom, rgba(28, 28, 26, 0.78) 0%, rgba(28, 28, 26, 0.28) 26%, rgba(28, 28, 26, 0) 44%);
   pointer-events: none;
 }
 
@@ -8142,7 +8147,7 @@ body:has(.woods-page) > footer.main-footer {
   right: 0;
   top: 0;
   z-index: 1;
-  padding: 2rem;
+  padding: 1.5rem 1.5rem 2.5rem;
   text-align: center;
 }
 
@@ -8263,11 +8268,24 @@ body:has(.woods-page) > footer.main-footer {
 
   .woods-path-photo img {
     transform: none;
+  }
+
+  .woods-paths > li:nth-child(1) .woods-path-photo img {
+    object-position: center 30%;
+  }
+
+  .woods-paths > li:nth-child(2) .woods-path-photo img {
     object-position: center 38%;
   }
 
+  .woods-paths > li:nth-child(3) .woods-path-photo img {
+    object-position: center 12%;
+  }
+
   .woods-path-body {
-    padding: 0.85rem 1.15rem 0.85rem 0.85rem;
+    top: 0;
+    bottom: auto;
+    padding: 0.85rem 1.15rem 1.4rem 0.85rem;
     text-align: right;
   }
 

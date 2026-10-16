@@ -48,7 +48,8 @@ export default function AppointmentsPageContent() {
       <section id="book-appointment" className="content-section centered" style={{ 
         padding: '8rem 3rem', 
         background: '#f4f6f4',
-        minHeight: '70vh'
+        minHeight: '70vh',
+        scrollMarginTop: '90px'
       }}>
         <h2 style={{ fontSize: '3rem', marginTop: '0', marginBottom: '2rem', color: '#2c2c2c' }}>
           Book an Appointment

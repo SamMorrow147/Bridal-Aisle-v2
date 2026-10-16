@@ -35,7 +35,7 @@ export default function WoodsHero({
           <h1 className="mens-hero-title">{title}</h1>
         </div>
         <div className="woods-hero-cta">
-          <Link href="/appointments#appointment-5" className="woods-cta-btn">
+          <Link href="/appointments#book-appointment" className="woods-cta-btn">
             Book Your Fitting
           </Link>
         </div>

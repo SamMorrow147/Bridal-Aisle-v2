@@ -24,9 +24,9 @@ const PATHS = [
     large: true,
     image: '/mens-suits/suit-slide-3.jpg',
     alt: 'Groom in a tan suit with his bride from The Woods',
-    position: '42% 62%',
-    zoom: 1.18,
-    origin: '42% 70%',
+    position: 'center 40%',
+    zoom: 1.28,
+    origin: 'center 64%',
   },
   {
     href: '/mens-suits/prom',
@@ -34,18 +34,18 @@ const PATHS = [
     large: true,
     image: '/mens-suits/prom-path.jpg',
     alt: 'Three young men in blue suits from The Woods',
-    position: 'center 50%',
+    position: 'center 38%',
     zoom: 1.22,
-    origin: 'center 68%',
+    origin: 'center 62%',
   },
   {
     href: '/mens-suits/every-occasion',
     title: 'Every Occasion',
     image: '/mens-suits/occasion-path.jpg',
     alt: 'Man in a charcoal three-piece suit from The Woods',
-    position: 'center 22%',
-    zoom: 1.14,
-    origin: 'center 40%',
+    position: 'center 6%',
+    zoom: 1.08,
+    origin: 'center 8%',
   },
 ];
 
@@ -89,7 +89,7 @@ export default function NavigateTheWoodsPage() {
         </ul>
 
         <div className="woods-navigate-cta">
-          <Link href="/appointments#appointment-5" className="woods-cta-btn woods-cta-btn-on-dark">
+          <Link href="/appointments#book-appointment" className="woods-cta-btn woods-cta-btn-on-dark">
             Book Your Fitting
           </Link>
         </div>
