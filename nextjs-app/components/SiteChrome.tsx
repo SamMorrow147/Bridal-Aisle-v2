@@ -7,7 +7,7 @@ import MobileNav from '@/components/MobileNav';
 
 export default function SiteChrome({ part }: { part: 'top' | 'bottom' }) {
   const pathname = usePathname();
-  if (pathname?.startsWith('/mens-suits')) return null;
+  if (!pathname || pathname.startsWith('/mens-suits')) return null;
 
   if (part === 'top') {
     return (

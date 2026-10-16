@@ -65,7 +65,16 @@ const MobileNav = forwardRef<MobileNavRef, MobileNavProps>(function MobileNav({ 
         
         <div className="mobile-menu-header">
           {isWoods ? (
-            <div onClick={closeMenu}>
+            <div className="woods-mobile-logo" onClick={closeMenu}>
+              <Link href="/mens-suits" className="woods-mobile-trees" aria-label="The Woods home">
+                <Image
+                  src="/mens-suits/woods-trees-bone.png"
+                  alt=""
+                  width={1042}
+                  height={814}
+                  style={{ width: 'auto', height: '48px' }}
+                />
+              </Link>
               <WoodsWordmark size="mobile" />
             </div>
           ) : (
@@ -119,6 +128,16 @@ const MobileNav = forwardRef<MobileNavRef, MobileNavProps>(function MobileNav({ 
       <nav className={`mobile-nav-bar ${isWoods ? 'woods-mobile-nav-bar' : ''}`}>
         {isWoods ? (
           <div className="mobile-logo woods-mobile-logo">
+            <Link href="/mens-suits" className="woods-mobile-trees" aria-label="The Woods home" onClick={closeMenu}>
+              <Image
+                src="/mens-suits/woods-trees-bone.png"
+                alt=""
+                width={1042}
+                height={814}
+                priority
+                style={{ width: 'auto', height: '42px' }}
+              />
+            </Link>
             <WoodsWordmark size="mobile" />
           </div>
         ) : (

@@ -2,7 +2,13 @@
 
 import { useEffect, useRef } from 'react';
 
-export default function WoodsDetailsPhoto() {
+export default function WoodsDetailsPhoto({
+  imageLabel = 'A tailor measuring a groom in a brown three-piece suit at The Woods',
+  image,
+}: {
+  imageLabel?: string;
+  image?: string;
+}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const shiftRef = useRef<HTMLDivElement>(null);
 
@@ -46,7 +52,8 @@ export default function WoodsDetailsPhoto() {
         ref={shiftRef}
         className="woods-details-photo-shift"
         role="img"
-        aria-label="A tailor measuring a groom in a brown three-piece suit at The Woods"
+        aria-label={imageLabel}
+        style={image ? { backgroundImage: `url('${image}')` } : undefined}
       />
     </div>
   );

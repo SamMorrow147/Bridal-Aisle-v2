@@ -1,31 +1,50 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import BridesSlideshow from '@/components/BridesSlideshow';
-import WoodsHowItWorks from './WoodsHowItWorks';
-import WoodsDetailsPhoto from './WoodsDetailsPhoto';
-import WoodsHero from './WoodsHero';
+import WoodsHowItWorks from '../WoodsHowItWorks';
+import WoodsDetailsPhoto from '../WoodsDetailsPhoto';
+import WoodsDetailsTitle from '../WoodsDetailsTitle';
+import WoodsHero from '../WoodsHero';
+import WoodsPhotoReveal from '../WoodsPhotoReveal';
 
-export default function MensSuitsPageContent() {
+const STEPS = [
+  { title: 'Book your fitting', text: "Come in. We'll take it from there." },
+  { title: 'Pick the look', text: "Suit, shirt, tie, and shoes. We'll match her dress if you want." },
+  { title: 'Get measured', text: 'You and the rest of the crew.' },
+  { title: 'Try it on', text: 'Everything gets checked before prom.' },
+  { title: 'Own the night', text: 'The photos are forever, and the suit can be too.' },
+];
+
+export default function PromPageContent() {
   return (
     <>
     <main className="page-container">
-      <WoodsHero />
+      <WoodsHero
+        title={<>For Prom Night,<br />the Whole Crew<br />&amp; The Great North</>}
+        imageLabel="Young man in a navy tuxedo fastening a cufflink"
+        fgImage="/NewPromHero.png"
+        bgImage="/PromBackground.png"
+      />
 
       <section className="woods-details-section">
         <div className="woods-details-grid">
-          <WoodsDetailsPhoto />
+          <WoodsDetailsPhoto
+            image="/PromMeasure.png"
+            imageLabel="A tailor measuring a young man in a navy three-piece suit at The Woods"
+          />
           <div className="woods-details-copy">
             <p className="woods-details-label">
-              Bring the boys. Make it a thing or not. Whatever.
+              Bring the crew. Make it a thing or not.
             </p>
-            <h2 className="woods-details-title">Show up.<br />Get measured.<br />We&apos;ll handle the rest.</h2>
+            <WoodsDetailsTitle />
             <p className="woods-details-text">
-              You don&apos;t need to become a stylist for this. Bring the groom, send the groomsmen,
-              and we&apos;ll match the full look, from the suit and shoes to the smaller details.
-              Then we&apos;ll take the measurements so nobody is guessing the week of the wedding.
+              You don&apos;t need to become a stylist for this. Bring your date&apos;s colors,
+              bring the friends going with you, and we&apos;ll match the full look — suit, shoes,
+              the smaller details. Then we&apos;ll take the measurements so nobody is guessing
+              the week of prom.
             </p>
             <p className="woods-details-text">
-              One appointment. The whole party. You leave knowing it&apos;s handled.
+              One appointment. The whole group. You leave knowing it&apos;s handled.
             </p>
             <div className="woods-details-cta">
               <Link href="/appointments#appointment-5" className="woods-cta-btn">Get it done</Link>
@@ -34,7 +53,6 @@ export default function MensSuitsPageContent() {
         </div>
       </section>
 
-      {/* Section 2 - Suit Rentals */}
       <section className="mens-rentals-section">
         <div className="mens-two-column">
           <div className="mens-content-left">
@@ -47,9 +65,9 @@ export default function MensSuitsPageContent() {
             </h2>
             
             <p className="mens-section-text">
-              Wedding, prom, black-tie event, or something in between. Get the look without
-              buying a suit you&apos;ll barely wear after. We&apos;ll fit you, your groomsmen,
-              or your group and help pull the full look together.
+              Prom doesn&apos;t have to mean buying a suit you&apos;ll wear once. Rent.
+              We&apos;ll fit you and the rest of the group, match your date&apos;s colors,
+              and pull the look together — you don&apos;t have to shop it yourself.
             </p>
 
             <p className="mens-section-text">
@@ -69,7 +87,7 @@ export default function MensSuitsPageContent() {
               <a href="https://www.dbformalwear.com/online-catalog" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/home/dubois-logo.png"
-                  alt="DB Formalwear — men's formal attire for weddings, available at Bridal Aisle Boutique Minnesota"
+                  alt="DB Formalwear — prom and formal attire at Bridal Aisle Boutique Minnesota"
                   width={120}
                   height={60}
                   style={{ objectFit: 'contain' }}
@@ -89,26 +107,26 @@ export default function MensSuitsPageContent() {
           
           <div className="mens-image-right">
             <Image
-              src="/mens-suits/woods-rentals.jpg"
-              alt="Wedding party in brown and tan suits from The Woods at Bridal Aisle Boutique"
+              src="/PromRentals.jpg"
+              alt="Couple in a burgundy tuxedo and emerald gown beside a limousine, dressed for prom"
               fill
               unoptimized
               quality={95}
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
+              style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
             />
+            <WoodsPhotoReveal />
           </div>
         </div>
       </section>
 
-      <WoodsHowItWorks />
+      <WoodsHowItWorks steps={STEPS} />
 
-      {/* Section 4 - Own your suit */}
       <section className="mens-silk-suits-section woods-own-section">
         <div className="woods-own-photo">
           <Image
             src="/mens-suits/hero-groom.jpg"
-            alt="Groom in a tailored charcoal suit from The Woods — a wedding suit you can wear after"
+            alt="Tailored charcoal suit from The Woods — a prom suit you can wear after"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             style={{ objectFit: 'cover', objectPosition: 'center top' }}
@@ -116,11 +134,12 @@ export default function MensSuitsPageContent() {
         </div>
         <div className="silk-suits-content woods-own-copy">
           <h2 className="silk-suits-title">Own Your Suit</h2>
-          <p className="silk-suits-label">A Suit Made for the Wedding—and What Comes After</p>
+          <p className="silk-suits-label">A Suit Made for Prom—and What Comes After</p>
           
           <p className="silk-suits-text">
-            If you&apos;d rather own than rent, Bridal Aisle offers Pure Silk suits designed to
-            stay in your wardrobe long after the wedding day.
+            If you&apos;d rather own than rent, Bridal Aisle offers Pure Silk suits designed
+            for prom night that stay in your wardrobe after. Homecoming next year, graduation,
+            interviews — not just the one dance.
           </p>
           
           <p className="silk-suits-text">
@@ -129,8 +148,8 @@ export default function MensSuitsPageContent() {
           </p>
 
           <p className="silk-suits-text">
-            The result is a suit that feels right for the wedding, but works just as well
-            for dinners, work, celebrations, and whatever comes next.
+            The result is a suit that feels right for prom, and still works for interviews,
+            dinners, and whatever comes next.
           </p>
           
           <div style={{ marginTop: '3rem' }}>
@@ -139,20 +158,13 @@ export default function MensSuitsPageContent() {
         </div>
       </section>
 
-      {/* Photo Gallery */}
       <section className="mens-gallery-section woods-gallery-section">
         <BridesSlideshow slides={[
-          { image: '/mens-suits/suit-slide-1.jpg', alt: 'Wedding party in matching sage suits from The Woods' },
-          { image: '/mens-suits/suit-slide-2.jpg', alt: 'Metro suit' },
-          { image: '/mens-suits/suit-slide-3.jpg', alt: 'Metro suit' },
-          { image: '/mens-suits/suit-slide-4.jpg', alt: 'Metro suit' },
-          { image: '/mens-suits/suit-slide-5.jpg', alt: 'Metro suit' },
-          { image: '/mens-suits/suit-slide-6.jpg', alt: 'Metro suit' },
-          { image: '/mens-suits/suit-slide-7.jpg', alt: 'Metro suit' },
-          { image: '/mens-suits/groom-suit-brick.jpg', alt: 'Groom in suit' },
-          { image: '/mens-suits/hero-groom.jpg', alt: 'Groom formalwear' },
-          { image: '/home/groomportraits-2021-07-30candaceandchase-31-laurenbakerphotography-ee15a496.jpg', alt: 'Groom portrait' },
-          { image: '/home/bk-bride-groom-7.jpg', alt: 'Bride and groom' }
+          { image: '/PromRentals.jpg', alt: 'Couple in a burgundy tuxedo and emerald gown beside a limousine, dressed for prom' },
+          { image: '/mens-suits/suit-slide-7.jpg', alt: 'Young men in blue suits from The Woods' },
+          { image: '/mens-suits/suit-slide-5.jpg', alt: 'Two young men in grey and blue suits from The Woods' },
+          { image: '/mens-suits/suit-slide-2.jpg', alt: 'Young man in a rust three-piece suit from The Woods' },
+          { image: '/mens-suits/suit-slide-4.jpg', alt: 'Three men in brown and cream suits from The Woods' },
         ]} />
       </section>
     </main>

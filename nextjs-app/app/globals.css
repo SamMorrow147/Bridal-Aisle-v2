@@ -6737,6 +6737,7 @@ main.page-container .contact-page-container,
 body:has(.woods-page) {
   overflow-x: hidden;
   max-width: 100%;
+  background: #24362C;
 }
 
 .woods-page {
@@ -6750,6 +6751,14 @@ body:has(.woods-page) > footer.main-footer {
   display: none !important;
 }
 
+.woods-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow: visible;
+  background: #24362C;
+}
+
 .woods-announcement-bar {
   background: #24362c;
   padding: 0.5rem 2rem;
@@ -6757,20 +6766,29 @@ body:has(.woods-page) > footer.main-footer {
   z-index: 999;
   width: 100%;
   max-width: 100vw;
-  overflow-x: hidden;
-}
-
-.woods-announcement-bar .announcement-text {
-  font-style: normal;
-  letter-spacing: 1px;
-  text-transform: none;
+  min-height: 2.75rem;
+  overflow: visible;
 }
 
 .woods-header {
-  background: rgba(36, 54, 44, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  top: auto;
+  background: #24362C;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.woods-header .main-nav {
+  gap: clamp(0.85rem, 2.4vw, 3rem);
+  max-width: none;
+  padding: 0 1.25rem;
+}
+
+.woods-header .main-nav > a {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .woods-header .main-nav a {
@@ -6803,6 +6821,24 @@ body:has(.woods-page) > footer.main-footer {
   gap: 0.2rem;
   padding: 0.15rem 1.5rem;
   align-items: center;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
+
+.woods-nav-trees {
+  display: block;
+  line-height: 0;
+  position: relative;
+  z-index: 2;
+  margin: -2.55rem 0 0.1rem;
+}
+
+.woods-nav-trees img {
+  display: block;
+  height: 64px;
+  width: auto;
+  margin: 0 auto;
 }
 
 .woods-nav-mark .woods-wordmark,
@@ -6907,8 +6943,23 @@ body:has(.woods-page) > footer.main-footer {
   background: #1C1C1A;
 }
 
-.woods-footer .footer-content {
-  grid-template-columns: 240px 1fr 1fr 1.5fr;
+/* Tree mark stacked above "The Woods" in the footer lockup */
+.woods-footer-trees {
+  display: block;
+  line-height: 0;
+  margin-bottom: 0.6rem;
+}
+
+.woods-footer-trees img {
+  height: 64px;
+  width: auto;
+}
+
+/* Desktop only, so phones still get the site's single stacked footer column */
+@media (min-width: 769px) {
+  .woods-footer .footer-content {
+    grid-template-columns: 240px 1fr 1fr 1.5fr;
+  }
 }
 
 .woods-department-link-footer {
@@ -7034,6 +7085,44 @@ body:has(.woods-page) > footer.main-footer {
   }
 }
 
+/* Scroll depth (--hero-p, 0 at top → 1 once the hero has scrolled out). Uses the
+   standalone scale/translate/opacity props on elements so it layers on top of the
+   load-in keyframes (which own `transform`) instead of fighting them. */
+.woods-page .woods-hero {
+  --hero-p: 0;
+}
+
+/* Groom grows toward you from his feet */
+.woods-hero-fg {
+  transform-origin: 70% 100%;
+  scale: calc(1 + var(--hero-p) * 0.28);
+}
+
+/* Forest eases back: shrinks slightly and drifts down slower than the page */
+.woods-hero-bg {
+  scale: calc(1 - var(--hero-p) * 0.035);
+  translate: 0 calc(var(--hero-p) * 18%);
+}
+
+/* Title and button lift as you scroll past and stay fully opaque; a soft shadow
+   builds behind them so they stay legible as the groom grows in behind */
+.woods-page .woods-hero .woods-hero-copy,
+.woods-page .woods-hero .woods-hero-cta {
+  translate: 0 calc(var(--hero-p) * -70px);
+}
+
+.woods-page .woods-hero .mens-hero-title {
+  text-shadow:
+    0 2px calc(6px + var(--hero-p) * 18px) rgba(0, 0, 0, calc(0.15 + var(--hero-p) * 0.5)),
+    0 0 calc(var(--hero-p) * 40px) rgba(0, 0, 0, calc(var(--hero-p) * 0.35));
+}
+
+.woods-page .woods-hero .woods-cta-btn {
+  border-color: #A99A6F;
+  box-shadow: 0 calc(2px + var(--hero-p) * 10px) calc(6px + var(--hero-p) * 26px)
+    rgba(0, 0, 0, calc(0.12 + var(--hero-p) * 0.45));
+}
+
 .woods-page .woods-hero .mens-hero-content {
   z-index: 3;
   animation: woods-hero-copy-in 1s ease-out 0.75s both;
@@ -7086,7 +7175,7 @@ body:has(.woods-page) > footer.main-footer {
 }
 
 .woods-page .mens-hero-content {
-  max-width: 640px;
+  max-width: 80%;
   margin-left: 7%;
   text-align: left;
   padding: 3rem 2rem;
@@ -7103,7 +7192,11 @@ body:has(.woods-page) > footer.main-footer {
 }
 
 .woods-page .mens-hero-title {
+  width: 100%;
   margin-bottom: 1rem;
+  font-size: clamp(2.75rem, 4.2vw, 4.5rem);
+  line-height: 1.12;
+  white-space: nowrap;
 }
 
 .woods-hero-hook {
@@ -7126,9 +7219,9 @@ body:has(.woods-page) > footer.main-footer {
 .woods-page .woods-hero .woods-cta-btn:hover,
 .woods-details-cta .woods-cta-btn:hover,
 .woods-own-copy .woods-cta-btn:hover {
-  background: transparent;
+  background: #1C1C1A;
   color: #F1EADF;
-  border-color: #F1EADF;
+  border-color: #fff;
 }
 
 .woods-details-section {
@@ -7202,6 +7295,47 @@ body:has(.woods-page) > footer.main-footer {
   font-weight: 400;
 }
 
+/* One phrase per line, stepping down in weight: bold → semibold → regular */
+.woods-details-title > span {
+  display: block;
+}
+
+.woods-page .woods-details-title .woods-details-title-bold {
+  font-weight: 700;
+}
+
+.woods-page .woods-details-title .woods-details-title-semi {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.woods-page .woods-details-title .woods-details-title-regular {
+  font-weight: 400;
+}
+
+/* Lines rise in one after another: Show up. → Get measured. → We'll handle the rest. */
+.woods-details-title[data-motion="ready"] > span {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.woods-details-title[data-motion="inview"] > span {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.woods-details-title[data-motion="inview"] > span:nth-child(2) { transition-delay: 0.45s; }
+.woods-details-title[data-motion="inview"] > span:nth-child(3) { transition-delay: 0.9s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .woods-details-title > span {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 .woods-details-text {
   font-family: "raleway", sans-serif;
   font-size: 1.05rem;
@@ -7252,6 +7386,74 @@ body:has(.woods-page) > footer.main-footer {
 
 .woods-page .mens-rentals-section .mens-section-title {
   color: #F1EADF;
+}
+
+/* Walk through the stand: pines exit left/right and are gone once the photo is fully in view */
+.woods-page .mens-rentals-section .mens-image-right {
+  --reveal-p: 0;
+  overflow: hidden;
+}
+
+.woods-page .mens-rentals-section .mens-image-right img {
+  transform:
+    translate3d(0, calc((var(--reveal-p) - 0.45) * -22px), 0)
+    scale(calc(1.03 + var(--reveal-p) * 0.045));
+  transform-origin: center 22%;
+  will-change: transform;
+}
+
+/* Edge forest: tone-on-tone pines frame How It Works from both sides (center kept clear).
+   As it scrolls into view (--pass-p, 0 → 1) they grow and drift outward; the big outer
+   trees slide fully off screen, leaving only the faint inner ones. */
+.woods-pass {
+  --pass-p: 0.5;
+  container-type: size;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.woods-pass-tree {
+  --s: calc(0.8 + var(--pass-p) * var(--grow));
+  /* outward slide runs alongside the growth so trees move diagonally into the corners;
+     exit trees travel past their own edge plus their (scaled) half-width by full view */
+  --shift: calc(
+    var(--pass-p) * var(--drift) * 1cqw +
+    var(--exit) * var(--pass-p) * (var(--x) * 1cqw + 60% * var(--s))
+  );
+  position: absolute;
+  bottom: calc(var(--h) * -0.05cqh);
+  height: calc(var(--h) * 1cqh);
+  aspect-ratio: 337 / 553;
+  background: #1a271f;
+  opacity: var(--o);
+  -webkit-mask: url('/mens-suits/woods-tree-single.png') center bottom / contain no-repeat;
+  mask: url('/mens-suits/woods-tree-single.png') center bottom / contain no-repeat;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+
+.woods-pass-left {
+  left: calc(var(--x) * 1cqw);
+  transform: translateX(calc(-50% - var(--shift))) scale(var(--s));
+}
+
+.woods-pass-right {
+  right: calc(var(--x) * 1cqw);
+  transform: translateX(calc(50% + var(--shift))) scale(var(--s));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .woods-page .mens-rentals-section .mens-image-right img {
+    transform: none;
+    will-change: auto;
+  }
+
+  .woods-pass-tree {
+    transform: none;
+  }
 }
 
 .woods-page .mens-rentals-section .mens-section-text {
@@ -7326,6 +7528,13 @@ body:has(.woods-page) > footer.main-footer {
 .woods-page .woods-process-section {
   background: #24362c;
   padding: 6rem 3rem 5.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.woods-page .woods-process-section > :not(.woods-pass) {
+  position: relative;
+  z-index: 1;
 }
 
 .woods-page .mens-process-heading {
@@ -7387,27 +7596,60 @@ body:has(.woods-page) > footer.main-footer {
 
 .woods-process-section[data-motion="ready"] .mens-process-heading,
 .woods-process-section[data-motion="inview"] .mens-process-heading {
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .woods-process-section[data-motion="ready"] .woods-steps::before,
 .woods-process-section[data-motion="inview"] .woods-steps::before {
-  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+  transition: transform 1.9s cubic-bezier(0.22, 1, 0.36, 1) 1.15s;
 }
 
 .woods-process-section[data-motion="ready"] .woods-steps li,
 .woods-process-section[data-motion="inview"] .woods-steps li {
-  transition: opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1), transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(1) { transition-delay: 0.45s; }
-.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(2) { transition-delay: 0.9s; }
-.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(3) { transition-delay: 1.35s; }
-.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(4) { transition-delay: 1.8s; }
-.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(5) { transition-delay: 2.25s; }
+/* Sequence: title fades in (0-0.7s), underline draws (0.3-1.15s), then the steps
+   follow from 1.15s, one every 0.34s.
+   Brass underline drawn left to right under "How it works" once the title fades in.
+   The heading shrinks to its text so the line runs exactly from the "H" to the "s". */
+.woods-process-section .mens-process-heading {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: 1;
+}
+
+.woods-process-section .mens-process-heading::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 0.15rem;
+  background: #A99A6F;
+  transform-origin: left;
+}
+
+.woods-process-section[data-motion="ready"] .mens-process-heading::after {
+  transform: scaleX(0);
+}
+
+.woods-process-section[data-motion="inview"] .mens-process-heading::after {
+  transform: scaleX(1);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(1) { transition-delay: 1.15s; }
+.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(2) { transition-delay: 1.49s; }
+.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(3) { transition-delay: 1.83s; }
+.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(4) { transition-delay: 2.17s; }
+.woods-process-section[data-motion="inview"] .woods-steps li:nth-child(5) { transition-delay: 2.51s; }
 
 @media (prefers-reduced-motion: reduce) {
   .woods-process-section .mens-process-heading,
+  .woods-process-section .mens-process-heading::after,
   .woods-process-section .woods-steps li,
   .woods-process-section .woods-steps::before {
     opacity: 1 !important;
@@ -7440,9 +7682,9 @@ body:has(.woods-page) > footer.main-footer {
 
 .woods-step h3 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1.4;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #F1EADF;
   font-weight: 400;
@@ -7513,6 +7755,30 @@ body:has(.woods-page) > footer.main-footer {
 }
 
 .woods-page .woods-gallery-section {
+  background: #24362C;
+}
+
+.woods-mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.woods-mobile-trees {
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.woods-mobile-logo .woods-mobile-trees img,
+.woods-mobile-logo > img {
+  display: block;
+  height: 42px;
+  max-height: none;
+  width: auto;
+}
+
+.woods-mobile-nav-bar {
   background: #24362C;
 }
 
@@ -7604,15 +7870,34 @@ body:has(.woods-page) > footer.main-footer {
   border-color: #A99A6F;
 }
 
+@media (max-width: 1100px) and (min-width: 769px) {
+  .woods-header .main-nav {
+    gap: 0.85rem;
+  }
+
+  .woods-nav-mark {
+    padding: 0.15rem 0.4rem;
+  }
+
+  .woods-nav-mark .woods-department-link,
+  .woods-nav-mark .woods-wordmark-sub-link {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .woods-announcement-bar {
-    padding: 0.35rem 1rem;
+    display: none;
+  }
+
+  .woods-header {
+    padding: 0.4rem 1rem;
   }
 
   .woods-page .mens-hero-content {
     margin-left: 0;
     padding: 2.35rem 1.5rem 0;
-    text-align: center;
+    text-align: left;
     max-width: 100%;
     width: 100%;
     min-height: calc(85vh - 2rem);
@@ -7621,12 +7906,23 @@ body:has(.woods-page) > footer.main-footer {
     justify-content: space-between;
   }
 
+  .woods-page .woods-hero .woods-hero-copy,
+  .woods-page .woods-hero .mens-hero-title {
+    text-align: left;
+    width: 80%;
+  }
+
+  .woods-page .woods-hero .woods-hero-cta {
+    text-align: center;
+  }
+
   .woods-page .mens-hero-label {
     justify-content: center;
   }
 
   .woods-page .mens-hero-title {
-    font-size: 2.25rem;
+    font-size: clamp(1.85rem, 6.4vw, 2.35rem);
+    white-space: nowrap;
   }
 
   .woods-hero-hook {
@@ -7688,10 +7984,6 @@ body:has(.woods-page) > footer.main-footer {
     padding: 0;
   }
 
-  .woods-header {
-    padding: 0.75rem 1.25rem;
-  }
-
   .woods-cta-btn {
     padding: 0.9rem 1.75rem;
   }
@@ -7741,6 +8033,12 @@ body:has(.woods-page) > footer.main-footer {
     order: 1 !important;
   }
 
+  .woods-page .mens-rentals-section .mens-image-right img {
+    transform:
+      translate3d(0, calc((var(--reveal-p) - 0.45) * -12px), 0)
+      scale(calc(1.02 + var(--reveal-p) * 0.03));
+  }
+
   .woods-page .mens-rentals-section .mens-content-left {
     order: 2 !important;
     text-align: left;
@@ -7749,5 +8047,267 @@ body:has(.woods-page) > footer.main-footer {
 
   .woods-page .mens-rentals-section .mens-section-title {
     text-align: left;
+  }
+}
+
+/* ===== Navigate the Woods (/mens-suits landing) ===== */
+.woods-navigate {
+  position: relative;
+  overflow: hidden;
+  background: #1C1C1A;
+  color: #F1EADF;
+  padding: 0;
+}
+
+.woods-navigate-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(28, 28, 26, 0.55) 0%, rgba(28, 28, 26, 0.82) 55%, #1C1C1A 100%),
+    url('/mens-suits/woods-hero-bg.jpg') center 40% / cover no-repeat;
+  transform: scale(1.04);
+  animation: woods-hero-bg-in 1.5s ease-out both;
+  z-index: 0;
+}
+
+.woods-navigate-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem 3rem;
+}
+
+.woods-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.woods-paths {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.woods-paths > li {
+  animation: woods-hero-copy-in 0.9s ease-out both;
+  animation-delay: calc(0.65s + var(--i, 0) * 0.15s);
+}
+
+.woods-path {
+  position: relative;
+  display: block;
+  height: clamp(340px, calc(100svh - 360px), 600px);
+  overflow: hidden;
+  color: #F1EADF;
+  text-decoration: none;
+  border: 1px solid rgba(169, 154, 111, 0.25);
+  transition: border-color 0.4s ease;
+}
+
+.woods-path-photo {
+  position: absolute;
+  inset: 0;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.woods-path-photo img {
+  object-fit: cover;
+  object-position: var(--photo-pos, center 30%);
+  transform: scale(var(--photo-zoom, 1));
+  transform-origin: var(--photo-origin, center 70%);
+}
+
+.woods-path::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(28, 28, 26, 0.82) 0%, rgba(28, 28, 26, 0.28) 32%, rgba(28, 28, 26, 0) 55%);
+  pointer-events: none;
+}
+
+.woods-path-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.woods-path-title {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-family: "libre-caslon-display", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #F1EADF;
+  margin: 0;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #A99A6F;
+  transform-origin: center top;
+  transition: transform 0.35s ease;
+}
+
+.woods-path-title-lg {
+  font-size: 3rem;
+}
+
+.woods-path-title-lg .woods-path-arrow {
+  font-size: 1.5rem;
+}
+
+.woods-path-arrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  color: #A99A6F;
+  transition: transform 0.4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .woods-path:hover,
+  .woods-path:focus-visible {
+    border-color: #A99A6F;
+  }
+
+  .woods-path:hover .woods-path-photo,
+  .woods-path:focus-visible .woods-path-photo {
+    transform: scale(1.05);
+  }
+
+  .woods-path:hover .woods-path-title,
+  .woods-path:focus-visible .woods-path-title {
+    transform: scale(1.16);
+  }
+
+  .woods-path:hover .woods-path-arrow,
+  .woods-path:focus-visible .woods-path-arrow {
+    transform: translateX(4px);
+  }
+}
+
+.woods-navigate-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .woods-page:has(.woods-navigate) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .woods-page:has(.woods-navigate) .woods-chrome {
+    flex-shrink: 0;
+  }
+
+  .woods-page:has(.woods-navigate) .woods-announcement-bar {
+    display: none;
+  }
+
+  .woods-navigate {
+    min-height: calc(100dvh - 3.5rem);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .woods-navigate-inner {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    padding: 0 0 0.65rem;
+  }
+
+  .woods-paths {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    gap: 0.85rem;
+  }
+
+  .woods-paths > li {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+  }
+
+  .woods-path {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    border-left: none;
+    border-right: none;
+  }
+
+  .woods-path-photo img {
+    transform: none;
+    object-position: center 38%;
+  }
+
+  .woods-path-body {
+    padding: 0.85rem 1.15rem 0.85rem 0.85rem;
+    text-align: right;
+  }
+
+  .woods-path-title {
+    font-size: 2.4rem;
+    justify-content: flex-end;
+  }
+
+  .woods-path-title-lg {
+    font-size: 3.15rem;
+    justify-content: flex-end;
+  }
+
+  .woods-path-arrow {
+    font-size: 1.4rem;
+  }
+
+  .woods-path-title-lg .woods-path-arrow {
+    font-size: 1.65rem;
+  }
+
+  .woods-navigate-cta {
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  .woods-navigate-cta .woods-cta-btn {
+    padding: 0.65rem 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .woods-navigate-bg,
+  .woods-paths > li {
+    animation: none;
+  }
+
+  .woods-path-photo,
+  .woods-path-arrow {
+    transition: none;
   }
 }

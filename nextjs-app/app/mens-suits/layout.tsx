@@ -10,10 +10,10 @@ export default function WoodsLayout({
 }) {
   return (
     <div className="woods-page">
+      <div className="woods-chrome">
       <div className="woods-announcement-bar">
         <div className="announcement-content">
           <div className="announcement-spacer" aria-hidden="true" />
-          <h3 className="announcement-text">Suits for purchase and rent</h3>
           <a href="tel:(763) 220-2319" className="announcement-phone">(763) 220-2319</a>
         </div>
       </div>
@@ -24,6 +24,15 @@ export default function WoodsLayout({
           <Link href="/appointments">Appointments</Link>
           <Link href="/bridal">Bridal</Link>
           <div className="nav-logo-center woods-nav-mark">
+            <Link href="/mens-suits" className="woods-nav-trees" aria-label="The Woods home">
+              <Image
+                src="/mens-suits/woods-trees-bone.png"
+                alt=""
+                width={1042}
+                height={814}
+                priority
+              />
+            </Link>
             <WoodsWordmark hideSub />
             <Link href="/" className="woods-department-link">Bridal Aisle</Link>
             <Link href="/mens-suits" className="woods-wordmark-sub-link">
@@ -36,12 +45,21 @@ export default function WoodsLayout({
         </nav>
         <MobileNav variant="woods" />
       </header>
+      </div>
 
       {children}
 
       <footer className="main-footer woods-footer">
         <div className="footer-content">
           <div className="footer-logo-section">
+            <Link href="/mens-suits" className="woods-footer-trees" aria-label="The Woods home">
+              <Image
+                src="/mens-suits/woods-trees-bone.png"
+                alt=""
+                width={1042}
+                height={814}
+              />
+            </Link>
             <WoodsWordmark size="footer" />
             <Link href="/" className="woods-department-link woods-department-link-footer">
               A department of Bridal Aisle
