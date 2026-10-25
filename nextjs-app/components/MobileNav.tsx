@@ -4,7 +4,6 @@ import { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
-import WoodsWordmark from '@/components/WoodsWordmark';
 
 export interface MobileNavRef {
   openMenu: () => void;
@@ -65,18 +64,14 @@ const MobileNav = forwardRef<MobileNavRef, MobileNavProps>(function MobileNav({ 
         
         <div className="mobile-menu-header">
           {isWoods ? (
-            <div className="woods-mobile-logo" onClick={closeMenu}>
-              <Link href="/mens-suits" className="woods-mobile-trees" aria-label="The Woods home">
-                <Image
-                  src="/mens-suits/woods-trees-bone.png"
-                  alt=""
-                  width={1042}
-                  height={814}
-                  style={{ width: 'auto', height: '48px' }}
-                />
-              </Link>
-              <WoodsWordmark size="mobile" />
-            </div>
+            <Link href="/mens-suits" className="woods-logo woods-logo-drawer" aria-label="The Woods Men's Suits by Bridal Aisle" onClick={closeMenu}>
+              <img
+                src="/mens-suits/logo/the-woods-logo-on-dark.svg"
+                alt=""
+                width={2528}
+                height={1964}
+              />
+            </Link>
           ) : (
             <Link href="/" onClick={closeMenu}>
               <Image
@@ -127,19 +122,14 @@ const MobileNav = forwardRef<MobileNavRef, MobileNavProps>(function MobileNav({ 
       {/* Mobile Nav Bar */}
       <nav className={`mobile-nav-bar ${isWoods ? 'woods-mobile-nav-bar' : ''}`}>
         {isWoods ? (
-          <div className="mobile-logo woods-mobile-logo">
-            <Link href="/mens-suits" className="woods-mobile-trees" aria-label="The Woods home" onClick={closeMenu}>
-              <Image
-                src="/mens-suits/woods-trees-bone.png"
-                alt=""
-                width={1042}
-                height={814}
-                priority
-                style={{ width: 'auto', height: '42px' }}
-              />
-            </Link>
-            <WoodsWordmark size="mobile" />
-          </div>
+          <Link href="/mens-suits" className="mobile-logo woods-logo woods-logo-mobile" aria-label="The Woods Men's Suits by Bridal Aisle" onClick={closeMenu}>
+            <img
+              src="/mens-suits/logo/the-woods-logo-on-dark.svg"
+              alt=""
+              width={2528}
+              height={1964}
+            />
+          </Link>
         ) : (
           <Link href="/" className="mobile-logo" onClick={closeMenu}>
             <Image

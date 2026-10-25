@@ -21,7 +21,6 @@ const PATHS = [
   {
     href: '/mens-suits/wedding',
     title: 'Wedding',
-    large: true,
     image: '/mens-suits/suit-slide-3.jpg',
     alt: 'Groom in a tan suit with his bride from The Woods',
     position: 'center 40%',
@@ -31,7 +30,6 @@ const PATHS = [
   {
     href: '/mens-suits/prom',
     title: 'Prom',
-    large: true,
     image: '/mens-suits/prom-path.jpg',
     alt: 'Three young men in blue suits from The Woods',
     position: 'center 38%',
@@ -78,8 +76,8 @@ export default function NavigateTheWoodsPage() {
                   />
                 </div>
                 <div className="woods-path-body">
-                  <h2 className={`woods-path-title${path.large ? ' woods-path-title-lg' : ''}`}>
-                    {path.title}
+                  <h2 className="woods-path-title">
+                    <span className="woods-path-title-text">{path.title}</span>
                     <span className="woods-path-arrow" aria-hidden="true">→</span>
                   </h2>
                 </div>

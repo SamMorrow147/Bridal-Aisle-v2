@@ -19,7 +19,9 @@ const routes: Array<{
   { path: 'mens-suits/wedding', changeFrequency: 'weekly', priority: 0.8 },
   { path: 'mens-suits/prom', changeFrequency: 'weekly', priority: 0.7 },
   { path: 'mens-suits/every-occasion', changeFrequency: 'weekly', priority: 0.7 },
+  // mens-suits/brand-guide is an unlinked internal page and stays out of the sitemap.
   { path: 'about', changeFrequency: 'monthly', priority: 0.7 },
+  { path: 'a-very-marry-day', changeFrequency: 'monthly', priority: 0.8 },
   { path: 'contact', changeFrequency: 'monthly', priority: 0.8 },
   { path: 'blog', changeFrequency: 'monthly', priority: 0.6 },
   { path: 'credit', changeFrequency: 'yearly', priority: 0.3 },

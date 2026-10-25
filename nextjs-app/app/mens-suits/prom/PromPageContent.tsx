@@ -20,7 +20,7 @@ export default function PromPageContent() {
     <>
     <main className="page-container">
       <WoodsHero
-        title={<>For Prom Night,<br />the Whole Crew<br />&amp; The Great North</>}
+        title={<>For Prom Night,<br />the Whole Crew</>}
         imageLabel="Young man in a navy tuxedo fastening a cufflink"
         fgImage="/NewPromHero.png"
         bgImage="/PromBackground.png"
@@ -128,9 +128,9 @@ export default function PromPageContent() {
           <p className="silk-suits-label">A Suit Made for Prom—and What Comes After</p>
           
           <p className="silk-suits-text">
-            If you&apos;d rather own than rent, Bridal Aisle offers Pure Silk suits designed
-            for prom night that stay in your wardrobe after. Homecoming next year, graduation,
-            interviews — not just the one dance.
+            If you&apos;d rather own than rent, Bridal Aisle offers Pure Silk or Allure suits
+            designed for prom night that stay in your wardrobe after. Homecoming next year,
+            graduation, interviews — not just the one dance.
           </p>
           
           <p className="silk-suits-text">
@@ -164,7 +164,9 @@ export default function PromPageContent() {
       <section className="mens-gallery-section woods-gallery-section">
         <BridesSlideshow slides={[
           { image: '/PromRentals.jpg', alt: 'Couple in a burgundy tuxedo and emerald gown beside a limousine, dressed for prom' },
+          { image: '/mens-suits/detail-shoes.jpg', alt: 'Black leather dress shoes from The Woods' },
           { image: '/mens-suits/suit-slide-7.jpg', alt: 'Young men in blue suits from The Woods' },
+          { image: '/mens-suits/detail-studs.jpg', alt: 'White bow tie, studs, and cufflinks laid out with black dress shoes' },
           { image: '/mens-suits/suit-slide-5.jpg', alt: 'Two young men in grey and blue suits from The Woods' },
           { image: '/mens-suits/suit-slide-2.jpg', alt: 'Young man in a rust three-piece suit from The Woods' },
           { image: '/mens-suits/suit-slide-4.jpg', alt: 'Three men in brown and cream suits from The Woods' },

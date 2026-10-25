@@ -20,7 +20,7 @@ export default function WeddingPageContent() {
     <>
     <main className="page-container">
       <WoodsHero
-        title={<>For the Groom,<br />the Groomsmen<br />&amp; The Great North</>}
+        title={<>For the Groom,<br />the Groomsmen</>}
       />
 
       <section className="woods-details-section">
@@ -123,8 +123,8 @@ export default function WeddingPageContent() {
           <p className="silk-suits-label">A Suit Made for the Wedding—and What Comes After</p>
           
           <p className="silk-suits-text">
-            If you&apos;d rather own than rent, Bridal Aisle offers Pure Silk suits designed to
-            stay in your wardrobe long after the wedding day.
+            If you&apos;d rather own than rent, Bridal Aisle offers Pure Silk or Allure suits
+            designed to stay in your wardrobe long after the wedding day.
           </p>
           
           <p className="silk-suits-text">
@@ -159,8 +159,10 @@ export default function WeddingPageContent() {
       <section className="mens-gallery-section woods-gallery-section">
         <BridesSlideshow slides={[
           { image: '/mens-suits/suit-slide-1.jpg', alt: 'Wedding party in matching sage suits from The Woods' },
+          { image: '/mens-suits/detail-shoes.jpg', alt: 'Black leather dress shoes from The Woods' },
           { image: '/mens-suits/suit-slide-2.jpg', alt: 'Metro suit' },
           { image: '/mens-suits/suit-slide-3.jpg', alt: 'Metro suit' },
+          { image: '/mens-suits/detail-studs.jpg', alt: 'White bow tie, studs, and cufflinks laid out with black dress shoes' },
           { image: '/mens-suits/suit-slide-4.jpg', alt: 'Metro suit' },
           { image: '/mens-suits/suit-slide-5.jpg', alt: 'Metro suit' },
           { image: '/mens-suits/suit-slide-6.jpg', alt: 'Metro suit' },

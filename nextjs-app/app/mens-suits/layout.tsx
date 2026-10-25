@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import MobileNav from '@/components/MobileNav';
-import WoodsWordmark from '@/components/WoodsWordmark';
 
 export default function WoodsLayout({
   children,
@@ -24,19 +23,13 @@ export default function WoodsLayout({
           <Link href="/appointments">Appointments</Link>
           <Link href="/bridal">Bridal</Link>
           <div className="nav-logo-center woods-nav-mark">
-            <Link href="/mens-suits" className="woods-nav-trees" aria-label="The Woods home">
-              <Image
-                src="/mens-suits/woods-trees-bone.png"
+            <Link href="/mens-suits" className="woods-logo woods-logo-nav" aria-label="The Woods Men's Suits by Bridal Aisle">
+              <img
+                src="/mens-suits/logo/the-woods-logo-on-dark.svg"
                 alt=""
-                width={1042}
-                height={814}
-                priority
+                width={2528}
+                height={1964}
               />
-            </Link>
-            <WoodsWordmark hideSub />
-            <Link href="/" className="woods-department-link">Bridal Aisle</Link>
-            <Link href="/mens-suits" className="woods-wordmark-sub-link">
-              <span className="woods-wordmark-sub">Suits</span>
             </Link>
           </div>
           <Link href="/mens-suits" aria-current="page">Men&apos;s Suits</Link>
@@ -52,17 +45,13 @@ export default function WoodsLayout({
       <footer className="main-footer woods-footer">
         <div className="footer-content">
           <div className="footer-logo-section">
-            <Link href="/mens-suits" className="woods-footer-trees" aria-label="The Woods home">
-              <Image
-                src="/mens-suits/woods-trees-bone.png"
+            <Link href="/mens-suits" className="woods-logo woods-logo-footer" aria-label="The Woods Men's Suits by Bridal Aisle">
+              <img
+                src="/mens-suits/logo/the-woods-logo-on-dark.svg"
                 alt=""
-                width={1042}
-                height={814}
+                width={2528}
+                height={1964}
               />
-            </Link>
-            <WoodsWordmark size="footer" />
-            <Link href="/" className="woods-department-link woods-department-link-footer">
-              A department of Bridal Aisle
             </Link>
             <div className="footer-social-links">
               <a href="https://www.instagram.com/bridal.aisle.mn" target="_blank" rel="noopener noreferrer" aria-label="Bridal Aisle Boutique on Instagram" className="footer-social-link">

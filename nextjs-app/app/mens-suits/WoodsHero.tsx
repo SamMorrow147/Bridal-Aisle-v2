@@ -33,6 +33,7 @@ export default function WoodsHero({
       <div className="mens-hero-content">
         <div className="woods-hero-copy">
           <h1 className="mens-hero-title">{title}</h1>
+          <p className="woods-hero-hook">Measured. Styled. Done.</p>
         </div>
         <div className="woods-hero-cta">
           <Link href="/appointments#book-appointment" className="woods-cta-btn">
