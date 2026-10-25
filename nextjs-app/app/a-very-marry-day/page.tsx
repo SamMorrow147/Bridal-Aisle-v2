@@ -103,7 +103,8 @@ export default function VeryMarryDayPage() {
               Purchase a dress, suit, or secure your wedding date for suit rentals and you will be entered to win our Grand Prize! Winner will be announced at our event!
             </p>
             <p>
-              A percentage of all of our November proceeds will be donated to one of our favorite charities! Inspire &amp; Flourish | Pet Rescue.
+              A percentage of all of our November proceeds will be donated to one of our favorite charities!{' '}
+              <a href="https://inspireandflourish.org" target="_blank" rel="noopener noreferrer">Inspire &amp; Flourish | Pet Rescue</a>.
             </p>
           </div>
         </section>
