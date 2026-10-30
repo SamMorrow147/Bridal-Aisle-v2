@@ -157,6 +157,15 @@ export default function PromPageContent() {
                 style={{ objectFit: 'contain' }}
               />
             </a>
+            <a href="https://allurebridals.com/collections/mens" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/home/allure-suits-tuxedos.png"
+                alt="Allure Suits & Tuxedos"
+                width={180}
+                height={80}
+                style={{ objectFit: 'contain' }}
+              />
+            </a>
           </div>
         </div>
       </section>

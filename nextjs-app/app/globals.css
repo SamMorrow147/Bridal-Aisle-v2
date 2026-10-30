@@ -8051,6 +8051,12 @@ body:has(.woods-page) > footer.main-footer {
 
   .woods-own-copy .mens-logos {
     justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .woods-page .woods-own-section .mens-logos img {
+    width: min(148px, 40vw);
+    height: auto;
   }
 
   .woods-own-photo {

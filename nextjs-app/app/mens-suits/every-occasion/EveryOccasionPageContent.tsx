@@ -20,7 +20,7 @@ export default function EveryOccasionPageContent() {
     <>
     <main className="page-container">
       <WoodsHero
-        title={<>For the Gala,<br />the Graduation</>}
+        title={<>For the Gala,<br />the Graduation,<br />or the Office</>}
       />
 
       <section className="woods-details-section">
@@ -146,6 +146,15 @@ export default function EveryOccasionPageContent() {
               <Image
                 src="/home/psf-logo.png"
                 alt="Pure Silk Fabrics — custom made suits in Maple Grove MN at Bridal Aisle Boutique"
+                width={180}
+                height={80}
+                style={{ objectFit: 'contain' }}
+              />
+            </a>
+            <a href="https://allurebridals.com/collections/mens" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/home/allure-suits-tuxedos.png"
+                alt="Allure Suits & Tuxedos"
                 width={180}
                 height={80}
                 style={{ objectFit: 'contain' }}

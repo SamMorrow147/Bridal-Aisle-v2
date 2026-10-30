@@ -51,8 +51,8 @@ function LogoFile({
   return (
     <figure>
       <div className={`woods-guide-download-preview woods-guide-download-${well}`}>
-        <Image
-          src={`/mens-suits/logo/${file}.png`}
+        <img
+          src={`/mens-suits/logo/${file}.svg`}
           alt={`${name} Woods lockup`}
           width={2528}
           height={1964}
@@ -162,10 +162,10 @@ export default function WoodsBrandGuidePage() {
               <figcaption>Pure Silk. Own Your Suit.</figcaption>
             </figure>
             <figure>
-              <div className="woods-guide-partner-well woods-guide-partner-empty">
-                <span>Allure</span>
+              <div className="woods-guide-partner-well woods-guide-partner-black">
+                <Image src="/home/allure-suits-tuxedos.png" alt="Allure Suits & Tuxedos" width={180} height={80} />
               </div>
-              <figcaption>Allure sits beside Pure Silk. Logo file still needed.</figcaption>
+              <figcaption>Allure. Own Your Suit, beside Pure Silk.</figcaption>
             </figure>
           </div>
         </section>
